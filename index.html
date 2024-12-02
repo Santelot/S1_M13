@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        table { width: 100%; border-collapse: collapse; }
+        td { padding: 8px; border: 1px solid #ddd; vertical-align: top; }
+    </style>
+    <script>
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-2').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-4').style.display = 'none';
+                document.getElementById('activity-1').style.display = 'none';
+            }
+        }
+
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <h1>Playbook - S1 - M13</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+
+<!-- -------------------------------------------------Espacio para Actividades --------------------------------------------------------- -->
+
+<!-- Actividad 1 -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('saludo_ritual')">
+        <div class="title">🎉 Actividad 1: Saludo y Ritual Gnius Club ⏰ Tiempo: 2.5 minutos</div>
+        <div class="subtitle">Saludar a los genios y preparar el ambiente para el aprendizaje.</div>
+    </div>
+    <div id="saludo_ritual" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 2 "Bienvenida".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hola, Genios. Hoy exploraremos cómo repetir patrones y crear formas avanzadas como sólidos de revolución en diseño 3D. ¡Será un salto en creatividad!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 3 "¿Cómo están?".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Antes de empezar, quiero saber cómo están. Si están listos para innovar, toquen la punta de su nariz. Si necesitan un poco de motivación, estiren los brazos hacia el cielo."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 4 "Gracias por Asistir".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora, juntemos nuestras manos en agradecimiento por estar aquí, listos para aprender y crear algo increíble. ¡Gracias por asistir, Genios!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 4 (0.5 minutos):</strong> Proyectar Diapositiva 5 "Objetivos de la Misión".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hoy trabajaremos en tres objetivos: 1. Explorar la herramienta 'Duplicar y Repetir'. 2. Comprender los sólidos de revolución. 3. Aplicar estos conceptos en un diseño creativo. ¡Manos a la obra!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 2 -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('innovacion_dia')">
+        <div class="title">💡 Actividad 2: Innovación del Día ⏰ Tiempo: 4 minutos</div>
+        <div class="subtitle">Explorar cómo se aplican conceptos de diseño avanzado en la ingeniería aeroespacial.</div>
+    </div>
+    <div id="innovacion_dia" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 6 "Innovación del Día".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, hoy exploraremos cómo las cápsulas espaciales de SpaceX usan técnicas de diseño como patrones repetitivos y sólidos de revolución. Si nunca han escuchado éste último término, no se preocupen, hoy lo aprenderemos, simplemente observen los patrones que se repiten de manera circular. Estas herramientas permiten combinar precisión con eficiencia para crear estructuras increíbles en la ingeniería aeroespacial."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (2 minutos):</strong> Proyectar Diapositiva 7 "Cápsulas Espaciales en Acción".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Vamos a ver cómo estas cápsulas son diseñadas con herramientas similares a las que usaremos hoy. El uso de sólidos de revolución y patrones repetitivos no solo es eficiente, sino que también logra resultados aerodinámicos y funcionales. Presten atención al video para observar cómo estas técnicas toman forma."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (1.5 minutos):</strong> Proyectar Diapositiva 8 "Reflexión sobre el Diseño".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Estas técnicas no solo son clave en la ingeniería aeroespacial, sino también en muchos otros campos como arquitectura y diseño industrial. Genios, ¿cómo creen que podrían aplicar sólidos de revolución y patrones repetitivos en sus propios diseños?"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 3 -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('brain_gym')">
+        <div class="title">🧠 Actividad 3: Brain Gym ⏰ Tiempo: 11.5 minutos</div>
+        <div class="subtitle">Explorar y practicar técnicas avanzadas de diseño en TinkerCAD.</div>
+    </div>
+    <div id="brain_gym" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (1.5 minutos):</strong> Proyectar Diapositiva 9 "Introducción".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hoy comenzaremos a profundizar en técnicas avanzadas de diseño con TinkerCAD. Hasta ahora hemos dominado lo básico, la mayoría de las personas que han aprendido a trabajar con TinkerCAD a través de tutoriales y cursos básicos están prácticamente al mismo nivel que nosotros en este punto. Algunos pueden tener más tiempo de práctica que otros, pero estamos en terreno parejo en cuanto al uso de herramientas. Sin embargo, todavía hay mucho que aprender de TinkerCAD.
+
+Una vez que le tomas el ritmo, te das cuenta de que es una de las herramientas de diseño más rápidas disponibles, razón por la cual la elegimos para que aprendas. Sin necesidad de lanzar un software o navegar por menús complejos, los diseñadores experimentados pueden dar vida a sus ideas a una velocidad vertiginosa.
+
+TinkerCAD te permite pasar de la mente al diseño en minutos. Pero a partir de hoy nos adentraremos en algunas técnicas que llevarán tus diseños al siguiente nivel.
+
+Por lo tanto, hoy aprenderemos sobre duplicar y repetir, así como sólidos de revolución y patrones repetitivos."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 10 "Duplicar y Repetir".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hemos aprendido a usar la herramienta de duplicar en sesiones anteriores, pero eso fue solo la punta del iceberg y la forma básica de uso de la herramienta. Duplicar es una de las características más poderosas y menos entendidas de TinkerCAD. No lo pienses solo como una forma de duplicar objetos (copiar y pegar puede encargarse de eso). En cambio, la función de duplicar y repetir puede recordar y repetir una serie de acciones. Lleva un tiempo dominarla, pero una vez que lo hagas, te sentirás como un profesional."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (1 minuto):</strong> Proyectar Diapositiva 11 "Recordar y Repetir".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Profundicemos en ese último punto, 'recordar y repetir'. Cuando decimos recordar y repetir, nos referimos a que TinkerCAD puede recordar una cierta cantidad de cambios (transformaciones básicas) que realizas en una forma, como moverla, escalarla y rotarla. Por ejemplo, si tomas un objeto y lo duplicas como lo hemos hecho antes, podrías luego moverlo hacia arriba y rotarlo un poco. Estos movimientos y rotaciones son algo que TinkerCAD recordará por un tiempo, y si presionas la función de duplicar y repetir nuevamente, esta vez no solo duplicará el objeto, sino que también repetirá exactamente las mismas acciones que realizaste con ese objeto."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 4 (1 minuto):</strong> Proyectar Diapositiva 12 "Ejemplo: Pirámide".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Por ejemplo, al duplicar y repetir ajustes de tamaño, plano de trabajo y altura, puedes crear una pirámide en segundos. Primero verá lo que haces con el objeto duplicado, que en este caso será moverlo hacia arriba y hacerlo un poco más pequeño que el anterior, tal como los escalones de una pirámide. Las personas que no conocen esta técnica probablemente seguirán haciendo eso manualmente, pero nosotros no; sabemos que al presionar duplicar y repetir, TinkerCAD recreará nuestras acciones con el objeto copiado. Y ahí lo tienes, tal como te dije, una pirámide en segundos."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 5 (1 minuto):</strong> Proyectar Diapositiva 13 "Ejemplo: Patrón Circular".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Si te pones creativo, comenzarás a descubrir formas nuevas y útiles de explotar esta función. Por ejemplo, podemos duplicar y repetir ajustes de ángulo para crear rápidamente un patrón en forma de anillo. Para que esto funcione, tienes que seleccionar dos objetos separados, sabiendo que el centro del anillo (o generalmente el centro del patrón) será el punto medio entre esos dos. Recomiendo encarecidamente alinear los objetos de antemano para que la tarea sea más fácil de realizar."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 6 (1 minuto):</strong> Proyectar Diapositiva 14 "Ejemplo: Reloj".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Si ayer te hubiera pedido que crees un círculo con marcas de hora como un reloj, probablemente habrías pasado mucho tiempo rotando y colocando una marca a la vez; y seamos honestos, aquellos de ustedes que son perfeccionistas habrían dedicado tiempo e incluso cálculos para asegurarse de que estuvieran colocadas correctamente, mientras que aquellos que no lo son habrían terminado con algo bastante abstracto. Probablemente similar a los icónicos relojes deformados que el pintor Salvador Dalí incorporaba dentro de algunas de sus obras."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 7 (1 minuto):</strong> Proyectar Diapositiva 15 "Ejemplo: Tentáculo".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Podemos ser aún más creativos con esto. Duplicar y repetir una secuencia de ajustes de altura, tamaño y ángulo puede ayudarte a crear un tentáculo de monstruo con curvas orgánicas. Todo se reduce a dos cosas importantes:
+1.- Creatividad: sentarte y pensar en formas de usar esta herramienta puede llevarte a características muy interesantes que puedes empezar a implementar en cada diseño que realices.
+2.- Práctica: esto incluso contribuirá a tu creatividad, porque cuanto más uses esta técnica, más familiarizado estarás con ella y tu cerebro siempre estará buscando formas de facilitar tu trabajo con ella."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 8 (1 minuto):</strong> Proyectar Diapositiva 16 "Sólidos de Revolución".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora hablaremos sobre un uso muy específico pero avanzado de esta técnica: los sólidos de revolución. Un sólido de revolución en el modelado 3D es una forma creada tomando un contorno 2D (como una curva o una línea) y girándolo alrededor de un eje recto.
+Ejemplos:
+
+Cono de helado: Dibuja un triángulo y gíralo alrededor de uno de sus lados; el resultado es un cono.
+Esfera: Dibuja un semicírculo y gíralo alrededor de su borde recto (el diámetro); obtendrás una bola."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 9 (1 minuto):</strong> Proyectar Diapositiva 17 "Revolución Avanzada".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Imagina que tienes un dibujo plano del costado de un jarrón, y luego rotas ese dibujo alrededor de un palo (el eje) para crear la forma completa del jarrón en 3D. Podemos usar lo que aprendimos sobre Duplicar y Repetir para hacer exactamente esto.
+Es como convertir una forma plana en un objeto 3D completo girándola."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 10 (1 minuto):</strong> Proyectar Diapositiva 18 "Consejos de Revolución".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora, aquí hay algo importante sobre usar esta técnica para los sólidos de revolución: para crear una forma perfecta, probablemente necesitarás girarla varias veces, lo que con el tiempo genera un alto conteo de formas. Tener un conteo de formas enorme no es óptimo y podría ocasionar problemas con TinkerCAD. Te doy dos consejos:
+1.- No sientas la necesidad de crear una forma perfecta: en la mayoría de los casos, una forma muy geométrica y simple puede funcionar bien, e incluso encontrarás algunos patrones interesantes que surgen al usar esta técnica sin excederte con la cantidad de duplicados.
+2.- Puedes cortar la forma que planeas girar en forma de triángulo, repetir triángulos a lo largo de un círculo puede generar resultados más pulidos. Piensa en rebanadas de Pizza."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 11 (0.5 minutos):</strong> Proyectar Diapositiva 19 "Objetivos Alcanzados".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hasta ahora hemos explorado y practicado la herramienta 'Duplicar y Repetir', y comenzamos a entender los sólidos de revolución. Estos avances nos preparan para aplicar estas técnicas en el Challenge y otros diseños futuros."</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 4 -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('state_change')">
+        <div class="title">🎮 Actividad 4: State Change ⏰ Tiempo: 3 minutos</div>
+        <div class="subtitle">Juego rápido para activar la creatividad y concentración.</div>
+    </div>
+    <div id="state_change" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 20 "Juego de Palabras".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, vamos a hacer un juego rápido para activar nuestras mentes. Cada uno dirá una palabra relacionada con el tema del día. Recuerden que deben ser rápidos y creativos. ¡Comencemos!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (2 minutos):</strong> Proyectar Diapositiva 21 "Cronómetro".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "N/A"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 22 "Reflexión".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "¡Muy bien, Genios! Este juego nos ayuda a pensar rápido y estimular nuestra creatividad. Estas habilidades son clave para abordar desafíos complejos y encontrar soluciones innovadoras."</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 5 -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('team_gnius')">
+        <div class="title">🤝 Actividad 5: Team Gnius ⏰ Tiempo: 5.5 minutos</div>
+        <div class="subtitle">Formar equipos y configurar herramientas para la colaboración en el reto.</div>
+    </div>
+    <div id="team_gnius" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 23 "Formen Equipos".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, elijan a una pareja con quien NO hayan trabajado antes. Esto les ayudará a conocer nuevas ideas y perspectivas. Tienen un minuto para formar su equipo. ¡Vamos!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 24 "Cronómetro".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "N/A"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (1 minuto):</strong> Proyectar Diapositiva 25 "Scrumboard".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hoy continuaremos practicando la metodología Kanban para colaborar. Entren a Scrumboard.org, hagan clic en 'Crear un tablero gratis' y configuren su tablero Kanban con las tareas necesarias para el reto. Divídanlas según la dificultad que hayan elegido: Rookie, Master o Hacker."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 4 (3 minutos):</strong> Proyectar Diapositiva 26 "Cronómetro".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "N/A"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 6 -->
+<div id="activity-6" class="activity">
+    <div class="banner" onclick="toggleContent('challenge')">
+        <div class="title">🏆 Actividad 6: Challenge ⏰ Tiempo: 17.5 minutos</div>
+        <div class="subtitle">Poner en práctica las técnicas avanzadas de diseño en TinkerCAD.</div>
+    </div>
+    <div id="challenge" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 27 "Challenge".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, ha llegado el momento de poner en práctica todo lo que hemos aprendido hoy. El reto de esta misión es llevar sus habilidades al máximo y diseñar un proyecto creativo y técnicamente desafiante. ¡Prepárense para demostrar su genialidad!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1.5 minutos):</strong> Proyectar Diapositiva 28 "Crear un Árbol".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hoy vamos a diseñar un árbol de navidad usando mínimo 800 formas básicas en TinkerCAD. El objetivo principal es usar la herramienta 'Duplicar y Repetir' para ahorrar tiempo y construir partes complejas con eficiencia. Sean creativos en la forma en que estructuran sus árboles, utilizando diferentes patrones, tamaños y detalles que les permitan aprovechar al máximo esta técnica. ¡El límite es su imaginación!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (10 minutos):</strong> Proyectar Diapositiva 29 "Cronómetro".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "N/A"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 4 (1.5 minutos):</strong> Proyectar Diapositiva 30 "Comparar Resultados".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora, junten su trabajo con el equipo más cercano. Comparen sus diseños y discutan las dificultades técnicas que enfrentaron. ¿Qué partes les costaron más trabajo? ¿Cómo resolvieron esos desafíos? Este intercambio les ayudará a aprender estrategias diferentes y mejorar su colaboración técnica. Tienen 3 minutos para esto, así que aprovechen al máximo el tiempo."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 5 (3 minutos):</strong> Proyectar Diapositiva 31 "Cronómetro".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "N/A"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 6 (1.5 minutos):</strong> Proyectar Diapositiva 32 "Objetivos Alcanzados".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, hemos logrado todos los objetivos de esta misión: 1. Explorar y dominar la herramienta 'Duplicar y Repetir'. 2. Comprender y aplicar sólidos de revolución. 3. Usar estas técnicas en un diseño creativo y técnicamente desafiante. ¡Gran trabajo! Han demostrado que pueden combinar creatividad y eficiencia para superar retos complejos."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 7 (0.5 minutos):</strong> Proyectar Diapositiva 33 "You've Got Mon-e".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "¡Excelente trabajo, Genios! Han demostrado habilidades avanzadas de diseño 3D y una gran capacidad de colaboración. Por su esfuerzo y dedicación en esta misión, todos han ganado Mon-e. Sigan practicando estas técnicas y prepárense para los retos futuros. ¡Son increíbles!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 7 -->
+<div id="activity-7" class="activity">
+    <div class="banner" onclick="toggleContent('easter_egg')">
+        <div class="title">🥚 Actividad 7: Easter Egg ⏰ Tiempo: 2 minutos</div>
+        <div class="subtitle">Reforzar el aprendizaje del día con una dinámica divertida.</div>
+    </div>
+    <div id="easter_egg" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 34 "Easter Egg".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, llegó la hora del Easter Egg. Les haré una pregunta relacionada con lo aprendido hoy. Lean la pregunta en la siguiente diapositiva y, si saben la respuesta, levanten la mano."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (0.5 minutos):</strong> Proyectar Diapositiva 35 "Pregunta".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Uno, dos, tres. Levanten la mano si saben la respuesta. ¡Muy bien! Vamos a escuchar lo que tienen que decir."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (1 minuto):</strong> Proyectar Diapositiva 36 "Respuesta Correcta".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Uno, ven y dime la respuesta al oído. Ahora tú, dos. Y por último, el tres. La respuesta correcta es 'Salvador Dalí'. ¡Felicidades a los ganadores, reciben Mon-e!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 8 -->
+<div id="activity-8" class="activity">
+    <div class="banner" onclick="toggleContent('honor_dojo')">
+        <div class="title">🙏 Actividad 8: Honor de Dojo ⏰ Tiempo: 2 minutos</div>
+        <div class="subtitle">Cerrar la misión dejando el espacio limpio y ordenado.</div>
+    </div>
+    <div id="honor_dojo" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (2 minutos):</strong> Proyectar Diapositiva 37 "Honor de Dojo".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, antes de terminar, es momento de honrar nuestro espacio de trabajo. Por favor, regresen las Magic Tablets y asegúrense de dejar todo en orden. Gracias por su compromiso."</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+<!-- -------------------------------------------------Espacio para Actividades --------------------------------------------------------- -->
+
+</div>
+
+</body>
+</html>
